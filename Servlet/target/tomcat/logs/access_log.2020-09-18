@@ -26,3 +26,6 @@
 0:0:0:0:0:0:0:1 - - [18/Sep/2020:15:20:31 -0500] "GET /andresJavier?id=2 HTTP/1.1" 200 234 http-bio-8080-exec-8 224
 0:0:0:0:0:0:0:1 - - [18/Sep/2020:15:20:36 -0500] "GET /andresJavier?id=3 HTTP/1.1" 200 305 http-bio-8080-exec-10 228
 0:0:0:0:0:0:0:1 - - [18/Sep/2020:15:20:42 -0500] "GET /andresJavier?id=4 HTTP/1.1" 200 375 http-bio-8080-exec-10 220
+0:0:0:0:0:0:0:1 - - [18/Sep/2020:18:10:56 -0500] "GET / HTTP/1.1" 200 68 http-bio-8080-exec-1 477
+0:0:0:0:0:0:0:1 - - [18/Sep/2020:18:11:09 -0500] "GET /faces/calculadora.xhtml HTTP/1.1" 200 1012 http-bio-8080-exec-3 74
+0:0:0:0:0:0:0:1 - - [18/Sep/2020:18:11:09 -0500] "GET /faces/javax.faces.resource/theme.css?ln=primefaces-aristo HTTP/1.1" 200 24976 http-bio-8080-exec-5 27
