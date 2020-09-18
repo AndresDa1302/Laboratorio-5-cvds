@@ -1,16 +1,25 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
-        <title>TODO supply a title</title>
-        <meta charset="windows-1252">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Start Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
     <body>
-        <div>TODO write content</div>
+        <form name="form" action="servlets" onsubmit="return valido()" method="post">
+            id : <input type="number" placeholder="number 1 to 200" name="id" required>
+            <input type="submit" value="Enviar el formulario">
+
+        </form>
+        <script>
+            function valido() 
+            {
+                var numero=document.forms["form"]["id"].value;
+                if (numero<1 || numero >200)
+                {
+                    alert("debe ser un numero dentro del rango");
+                    return false;
+                }
+            }
+        </script>
     </body>
 </html>
