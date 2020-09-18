@@ -1,0 +1,3 @@
+20. La diferencia es que cuando se usa el metodo get, en la url se muestra las id y cuando se usa el post no.
+
+21. La clase service nos permite convertir la información del Json en objeto y ademas ofrece un metodo que interpreta la información del objeto y nos devuelve su informacíón en html.
