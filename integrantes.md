@@ -1,2 +1,2 @@
-Andres Felipe Davila Gutierrez/
-Javier esteban Lopez
+1. Andres Felipe Davila Gutierrez
+2. Javier esteban Lopez
