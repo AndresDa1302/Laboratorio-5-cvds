@@ -19,8 +19,11 @@ and open the template in the editor.
             <br><p>Varianza</p><p:outputLabel value="#{calculadoraBean.varianza}" /></br>
             <br><p>Desviación Estandar</p><p:outputLabel value="#{calculadoraBean.desStan}"/></br>
             
-            
-            
+            <p:dataTable var="lista" value="#{calculadoraBean.lista}">
+                <p:column headerText="Valores Anteriores">
+                    <h:outputText value="#{lista}" />
+                </p:column>
+            </p:dataTable>
             
         </h:form>
     </h:body>

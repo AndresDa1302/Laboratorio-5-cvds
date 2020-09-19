@@ -29,7 +29,24 @@ public class BackingBean implements Serializable{
     private double varianza;
     private double desStan;
     private double media;
+    
+    private ArrayList<String> lista = new ArrayList<String>();
 
+    public ArrayList<Double> getNumberList() {
+        return numberList;
+    }
+
+    public void setNumberList(ArrayList<Double> numberList) {
+        this.numberList = numberList;
+    }
+
+    public ArrayList<String> getLista() {
+        return lista;
+    }
+
+    public void setLista(ArrayList<String> lista) {
+        this.lista = lista;
+    }
     
     public BackingBean() {
         
@@ -87,6 +104,13 @@ public class BackingBean implements Serializable{
     
     public void calcularTodo(String valores)
     {
+        System.out.println("JEG");
+        
+        lista.add(valores);
+        lista.forEach((v) -> {
+            System.out.println(v);
+        });
+        
         calculateMean(valores);
         calculateStandardDeviation(valores);
         calculateVariance(valores);
