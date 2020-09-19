@@ -24,75 +24,96 @@ import javax.faces.bean.ManagedBean;
 @SessionScoped
 public class BackingBean implements Serializable{
     
-    private ArrayList<Double> numeros= new ArrayList<Double>();
-    public double moda;
-    public double varianza;
-    public double desStan;
-    public double media;
-  
+    private ArrayList<Double> numberList= new ArrayList<Double>();
+    private double moda;
+    private double varianza;
+    private double desStan;
+    private double media;
+
+    
     public BackingBean() {
         
     }
 
     public ArrayList<Double> getNumeros() {
-        return numeros;
+        return numberList;
     }
 
     public void setNumeros(ArrayList<Double> numeros) {
-        this.numeros = numeros;
+        this.numberList = numeros;
     }
 
-    public Double getModa() {
+    public double getModa() {
         return moda;
     }
 
-    public void setModa(Double moda) {
+    public void setModa(double moda) {
         this.moda = moda;
     }
 
-    public Double getVarianza() {
+    public double getVarianza() {
         return varianza;
     }
 
-    public void setVarianza(Double varianza) {
+    public void setVarianza(double varianza) {
         this.varianza = varianza;
     }
 
-    public Double getDesStan() {
+    public double getDesStan() {
         return desStan;
     }
 
-    public void setDesStan(Double desStan) {
+    public void setDesStan(double desStan) {
         this.desStan = desStan;
     }
 
-    public Double getMedia() {
+    public double getMedia() {
         return media;
     }
 
-    public void setMedia(Double media) {
+    public void setMedia(double media) {
         this.media = media;
     }
-    
-    public double calculateMean(ArrayList<Double> numberList)
+
+    public void stringToArray(String valores)
     {
+        String[] valList = valores.split("; ");
+
+        for(String val: valList)
+        {
+            numberList.add(Double.parseDouble(val));
+        }
+    }
+    
+    public void calcularTodo(String valores)
+    {
+        calculateMean(valores);
+        calculateStandardDeviation(valores);
+        calculateVariance(valores);
+        calculateMode(valores);
+    }
+    
+    public double calculateMean(String valores)
+    {
+        stringToArray(valores);
         media=0;
         for(int i=0;i<numberList.size();i++)
         {
             media+=numberList.get(i);
         }
         media=media/numberList.size();
+        
         return media;
+
     }
-    public double calculateStandardDeviation(ArrayList<Double> numberList)
+    public void calculateStandardDeviation(String valores)
     {
-        desStan=calculateVariance(numberList);
+        desStan=calculateVariance(valores);
         desStan=Math.sqrt(desStan);
-        return desStan;
     }
-    public double calculateVariance(ArrayList<Double> numberList)
+    public double calculateVariance(String valores)
     {
-       double number=calculateMean(numberList);
+       double number=calculateMean(valores);
        varianza=0;
        for(int i=0;i<numberList.size();i++)
        {
@@ -102,11 +123,11 @@ public class BackingBean implements Serializable{
            varianza = varianza+range;
        }
        varianza= varianza/numberList.size();
-      
        return varianza;
     }
-    public double calculateMode(ArrayList<Double> numberList)
+    public void calculateMode(String valores)
     {
+        stringToArray(valores);
         moda = numberList.get(0);
 	double estado= numberList.get(0);
 	int maximo = 0;
@@ -118,7 +139,7 @@ public class BackingBean implements Serializable{
 			cont++;
 		}else
 		{
-			if(cont>maximo)
+			if(cont>=maximo)
 			{
 				maximo = cont;
 				moda = numberList.get(i);
@@ -126,10 +147,13 @@ public class BackingBean implements Serializable{
 			estado = numberList.get(i);
 		}
 	}
-	return moda;
     }
     public void restart()
     {
-    
+        numberList.clear();
+        moda=0;
+        varianza=0;
+        desStan=0;
+        media=0;
     }
 }

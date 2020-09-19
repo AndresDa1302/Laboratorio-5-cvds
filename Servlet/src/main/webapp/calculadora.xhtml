@@ -3,7 +3,7 @@
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
-
+-->
 <!DOCTYPE html>
 <html xmlns="http://www.w3c.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
@@ -11,9 +11,17 @@ and open the template in the editor.
     <h:head></h:head>
     <h:body>
         <h:form id="calculadora_form">
-            <p:inputText id="double-input" value="#{BackingBean.numeros}" />
-            <p:outputLabel value="#{BackingBean.moda}" style="display:none" />
+            <p:inputText id="Entrada" type="text" binding="#{input}" />
+            <br><p:commandButton value="Calcular" update="calculadora_form" actionListener="#{calculadoraBean.calcularTodo(input.value)}"/>
+            <p:commandButton value="Resetear" update="calculadora_form" actionListener="#{calculadoraBean.restart()}"/></br>
+            <br><p>Moda</p><p:outputLabel value="#{calculadoraBean.moda}" /></br>
+            <br><p>Media</p><p:outputLabel value="#{calculadoraBean.media}" /></br>
+            <br><p>Varianza</p><p:outputLabel value="#{calculadoraBean.varianza}" /></br>
+            <br><p>Desviación Estandar</p><p:outputLabel value="#{calculadoraBean.desStan}"/></br>
+            
+            
+            
+            
         </h:form>
     </h:body>
 </html>
--->
