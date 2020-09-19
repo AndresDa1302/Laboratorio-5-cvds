@@ -25,6 +25,10 @@ import javax.faces.bean.ManagedBean;
 public class BackingBean implements Serializable{
     
     private ArrayList<Double> numeros= new ArrayList<Double>();
+    public double moda;
+    public double varianza;
+    public double desStan;
+    public double media;
   
     public BackingBean() {
         
@@ -37,43 +41,73 @@ public class BackingBean implements Serializable{
     public void setNumeros(ArrayList<Double> numeros) {
         this.numeros = numeros;
     }
-    
-    
+
+    public Double getModa() {
+        return moda;
+    }
+
+    public void setModa(Double moda) {
+        this.moda = moda;
+    }
+
+    public Double getVarianza() {
+        return varianza;
+    }
+
+    public void setVarianza(Double varianza) {
+        this.varianza = varianza;
+    }
+
+    public Double getDesStan() {
+        return desStan;
+    }
+
+    public void setDesStan(Double desStan) {
+        this.desStan = desStan;
+    }
+
+    public Double getMedia() {
+        return media;
+    }
+
+    public void setMedia(Double media) {
+        this.media = media;
+    }
     
     public double calculateMean(ArrayList<Double> numberList)
     {
-        double number=0;
+        media=0;
         for(int i=0;i<numberList.size();i++)
         {
-            number+=numberList.get(i);
+            media+=numberList.get(i);
         }
-        number=number/numberList.size();
-        return number;
+        media=media/numberList.size();
+        return media;
     }
     public double calculateStandardDeviation(ArrayList<Double> numberList)
     {
-        double number=calculateVariance(numberList);
-        number=Math.sqrt(number);
-        return number;
+        desStan=calculateVariance(numberList);
+        desStan=Math.sqrt(desStan);
+        return desStan;
     }
     public double calculateVariance(ArrayList<Double> numberList)
     {
        double number=calculateMean(numberList);
-       double var=0;
+       varianza=0;
        for(int i=0;i<numberList.size();i++)
        {
            double range;
            
            range=Math.pow(numberList.get(i)-number,2);
-           var = var+range;
+           varianza = varianza+range;
        }
-       var= var/numberList.size();
+       varianza= varianza/numberList.size();
       
-       return var;
+       return varianza;
     }
     public double calculateMode(ArrayList<Double> numberList)
     {
-        double moda = numberList.get(0);
+        moda = numberList.get(0);
 	double estado= numberList.get(0);
 	int maximo = 0;
 	for(int i=0;i<numberList.size();i++)
